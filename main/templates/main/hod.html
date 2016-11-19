@@ -1,0 +1,40 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+  HOD | {{ hod.dept }} | Home Page
+{% endblock %}
+
+{% block heading %}
+    Students
+{% endblock %}
+
+{% block name %}
+  {{ hod.name  }}
+{% endblock %}
+
+{% block url %}
+    {% url 'main:hod_profile'%}
+{% endblock %}
+
+{% block form-action %}
+    {% url 'main:hod_profile'%}
+{% endblock %}
+
+{% block NotApproved %}
+      {%for stud in students %}
+        {% if stud.dept_status == True and stud.lab_status == True %}
+          {% if stud.hod_approval == False %}
+                         <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="{{ stud.webmail }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.roll }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.name }}</p>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+{% endblock %}
+{% block Approved %}
+      {%for stud in students %}
+        {% if stud.dept_status == True and stud.lab_status == True %}
+          {% if stud.hod_approval == True %}
+                         <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" checked name="{{ stud.webmail }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.roll }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.name }}</p>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+{% endblock %}

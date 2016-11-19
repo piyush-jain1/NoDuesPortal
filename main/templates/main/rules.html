@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Rules</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="container text-center">
+    <img src="http://www.iitg.ernet.in/adas/images/iit_logo.jpg" alt="Mountain View" style="width:280px;height:200px;">
+    <h1>No Dues Portal</h1>
+    <p><h1><strong>Indian Institute of Technology, Guwahati<strong><h1></p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'main:rules'%}"<span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+        <li><a href="{% url 'main:rules' %}"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Rules</a></li>
+        <li><a href="{% url 'main:contact' %}"><span class="glyphicon glyphicon-earphone"></span>&nbsp;Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'main:logout_user' %}">&nbsp;&nbsp;|&nbsp;&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<body>
+<div class="container-fluid text-center">
+  <div class="row content">
+  <div class="well">
+        <h2>Important Rules</h2>
+  </div>
+  <div class="col-sm-9 text-left">
+		  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>This is the rule number 1.</p>
+		  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>This is the rule number 2.</p>
+		  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>This is the rule number 3.</p>
+		  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>This is the rule number 4.</p>
+		  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>This is the rule number 5.</p>
+
+	</div>	
+	</div>
+</div>
+</body>
+</html>
+
+
+

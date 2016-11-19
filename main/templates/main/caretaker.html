@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    {{ caretaker.name }} | Caretaker | Home Page
+{% endblock %}
+
+{% block heading %}
+    Students of {{ caretaker.hostel }}
+{% endblock %}
+
+{% block name %}
+  {{ caretaker.name  }}
+{% endblock %}
+
+{% block url %}
+    {% url 'main:caretaker_profile'%}
+{% endblock %}
+
+{% block form-action %}
+    {% url 'main:caretaker_profile'%}
+{% endblock %}
+
+{% block NotApproved %}
+      {%for stud in students %}
+          {% if stud.caretaker_approval == False %}
+                         <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="{{ stud.webmail }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.roll }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.name }}</p>
+          {% endif %}
+      {% endfor %}
+{% endblock %}
+{% block Approved %}
+      {%for stud in students %}
+          {% if stud.caretaker_approval == True %}
+                         <p align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" checked name="{{ stud.webmail }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.roll }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ stud.name }}</p>
+          {% endif %}
+      {% endfor %}
+{% endblock %}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Lab Full Detail</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="container text-center">
+    <img src="http://www.iitg.ernet.in/adas/images/iit_logo.jpg" alt="Mountain View" style="width:280px;height:200px;">
+    <h1>No Dues Portal</h1>
+    <p><h1><strong>Indian Institute of Technology, Guwahati<strong><h1></p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'main:student_profile' %}">Home</a></li>
+        <li><a href="{% url 'main:rules' %}">Rules</a></li>
+        <li><a href="{% url 'main:contact' %}">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'main:logout_user' %}"<span class="glyphicon glyphicon-user"></span>&nbsp;<STRONG>{{ student.name }}&nbsp;|&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;Logout</STRONG></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+    <div class="col-sm-9">
+      <div class="well">
+        <h4>Details :</h4>
+        {%for i in StudLabStatus %}
+            <p>
+                {% if i.approval == True %}
+                    <font color="green">{{ i.lab.name }} &nbsp;:&nbsp; Approved</font>
+                {%else%}
+                    <font color="red">{{ i.lab.name }} &nbsp;:&nbsp; Not Approved</font>
+                {% endif %}
+            </p>
+          {% endfor %}
+      </div>
+    </div>
+
+</div>
+ 
+
+<div id="wrapper">
+		<div id="header"></div>
+		<div id="content"></div>
+		<div id="footer"></div>
+	</div>
+
+<footer class="container-fluid text-center">
+  <p><h4>&copy; <strong>2016 IIT Guwahati</strong></h><p> 
+</footer>
+</body>
+</html>
+

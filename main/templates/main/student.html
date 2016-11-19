@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Student Homepage</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: black;
+      padding: 5px;
+      color:white;
+    }
+
+    .col-sm-3half {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    }
+
+    @media (min-width: 768px) {
+        .col-sm-3half{
+            float: left;
+        }
+        .col-sm-3half {
+            width: 20%;
+        }
+    }
+
+    #True {
+      background-image: none;
+      background-color: green;
+      color: white;
+
+    }
+
+    #False {
+      background-image: none;
+      background-color: red;
+      color: white;
+
+    }
+
+    a:link {
+    color: black;
+}
+
+    /* visited link */
+    a:visited {
+        color: white;
+    }
+
+    /* mouse over link */
+    a:hover {
+        color: black;
+    }
+
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="container text-center">
+    <img src="http://www.iitg.ernet.in/adas/images/iit_logo.jpg" alt="Mountain View" style="width:280px;height:200px;">
+    <h1>No Dues Portal</h1>
+    <p><h1><strong>Indian Institute of Technology, Guwahati<strong><h1></p>
+  </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Logo</a> -->
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url 'main:student_profile' %}"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
+        <li><a href="{% url 'main:rules' %}"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Rules</a></li>
+        <li><a href="{% url 'main:contact' %}"><span class="glyphicon glyphicon-earphone"></span>&nbsp;Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'main:logout_user' %}"<span class="glyphicon glyphicon-user"></span>&nbsp;<STRONG>{{ student.name }}&nbsp;|&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;Logout</STRONG></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3half">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.caretaker_approval }}">Caretaker</div>
+        <div class="panel-body">Status : {% if student.caretaker_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-3half">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.gymkhana_approval }}">Gymkhana</div>
+        <div class="panel-body">Status  : {% if student.gymkhana_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-3half">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.online_cc_approval }}">Online-CC</div>
+        <div class="panel-body">Status  : {% if student.online_cc_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-3half">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.dept_status }}"><a href="{% url 'main:student_dept_detail' %}">Department</a></div>
+        <div class="panel-body">Status : {% if student.dept_status == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-3half">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.lab_status }}"><a href="{% url 'main:student_lab_detail' %}">Labs</a></div>
+        <div class="panel-body">Status : {% if student.lab_status == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.warden_approval }}">Warden</div>
+        <div class="panel-body">Status  : {% if student.warden_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.library_approval }}">Library</div>
+        <div class="panel-body">Status  : {% if student.library_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.cc_approval }}">CC</div>
+        <div class="panel-body">Status  : {% if student.cc_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.assistant_registrar_approval }}">Assistant Registrar</div>
+        <div class="panel-body">Status  : {% if student.assistant_registrar_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.hod_approval }}">HOD</div>
+        <div class="panel-body">Status : {% if student.hod_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading" id="{{ student.account_approval }}">Account</div>
+        <div class="panel-body">Status  : {% if student.account_approval == True %}Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-ok"></span>{% else %}Not Approved&nbsp;&nbsp;<span class="glyphicon glyphicon-exclamation-sign"></span>{% endif %}</div>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+
+<div class="col-sm-12">
+  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>For Detailed Status of approval by Department , Click on 'Department'.</p>
+  <p>&nbsp;&nbsp;<span class="glyphicon glyphicon-hand-right">&nbsp;</span>For Detailed Status of approval by Labs , Click on 'Labs'.</p>
+
+
+<footer class="container-fluid text-center">
+  <p><h4>&copy;&nbsp;&nbsp;<strong>IIT Guwahati&nbsp;&nbsp;|&nbsp;&nbsp;2016</strong></h><p> 
+</footer>
+</div>
+</body>
+</html>
