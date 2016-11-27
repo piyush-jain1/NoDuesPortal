@@ -16,7 +16,7 @@ def login_user(request):
         username = request.POST['username']
         password = request.POST['password']
         role = request.POST['role']
-        print role
+        # print str(role)
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
@@ -26,107 +26,147 @@ def login_user(request):
                 username = str(username)
                 if role == "Student":
                     students = Student.objects.all()
+                    
+                    flag=0
                     for stud in students:
                         if stud.webmail == username:
-                            return redirect('/student_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/student_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
 
                 elif role == "Faculty":
                     faculty = Faculty.objects.all()
+                    flag=0
                     for fac in faculty:
                         if fac.webmail == username:
-                            return redirect('/faculty_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/faculty_profile')   
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                     
                 elif role == "Lab":
                     labs = Lab.objects.all()
+                    flag=0
                     for lab in labs:
                         if lab.webmail == username:
-                            return redirect('/lab_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/lab_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
 
                 elif role == "Caretaker":
                     caretaker = Caretaker.objects.all()
+                    flag=0
                     for care in caretaker:
                         if care.webmail == username:
-                            return redirect('/caretaker_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/caretaker_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
 
                 elif role == "Warden":
                     warden = Warden.objects.all()
+                    flag=0
                     for ward in warden:
                         if ward.webmail == username:
-                            return redirect('/warden_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/warden_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
 
                 elif role == "Gymkhana":
                     gymkhana = Gymkhana.objects.all()
+                    flag=0
                     for gym in gymkhana:
                         if gym.webmail == username:
-                            return redirect('/gymkhana_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/gymkhana_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                    
                 elif role == "OnlineCC":
                     onlinecc = OnlineCC.objects.all()
+                    flag=0
                     for onl in onlinecc:
                         if onl.webmail == username:
-                            return redirect('/onlinecc_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/onlinecc_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                    
                 elif role == "CC":
                     cc = CC.objects.all()
+                    flag=0
                     for c in cc:
                         if c.webmail == username:
-                            return redirect('cc_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('cc_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                    
                 elif role == "Thesis Manager":
                     thesis = SubmitThesis.objects.all()
+                    flag=0
                     for thes in thesis:
                         if thes.webmail == username:
-                            return redirect('/thesis_manager_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/thesis_manager_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                     
                 elif role == "Library":
                     library = Library.objects.all()
+                    flag=0
                     for lib in library:
                         if lib.webmail == username:
-                            return redirect('/library_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/library_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                     
                 elif role == "Assistant Registrar":
                     asst = asstreg.objects.all()
+                    flag=0
                     for a in asst:
                         if a.webmail == username:
-                            return redirect('/assistant_registrar_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/assistant_registrar_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                     
                 elif role == "HOD":
                     hod = HOD.objects.all()
+                    flag=0
                     for h in hod:
                         if h.webmail == username:
-                            return redirect('/hod_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/hod_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
                 
                 elif role == "Account":
                     account = Account.objects.all()
+                    flag=0
                     for acc in account:
                         if acc.webmail == username:
-                            return redirect('/account_profile')
-                        else:
-                            return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
+                            flag=1
+                    if flag==1:
+                        return redirect('/account_profile')
+                    else:
+                        return render(request, 'main/login.html', {'error_message': 'Invalid Role'})
 
                 else:
                     return render(request, 'main/login.html', {'error_message': 'Invalid Credentials'})
@@ -413,6 +453,8 @@ def library_profile(request):
         return render(request, 'main/library.html',
                       {'error_message': 'valid login', 'students': students, 'library': library})
     elif request.method == "POST":
+        username = request.user.username
+        library = Library.objects.get(webmail=username)
         students = Student.objects.filter(submit_thesis=True)
         for stud in students:
             if request.POST.get(stud.webmail, "") == 'on':

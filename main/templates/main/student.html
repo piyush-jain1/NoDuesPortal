@@ -98,8 +98,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="{% url 'main:student_profile' %}"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a></li>
-        <li><a href="{% url 'main:rules' %}"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Rules</a></li>
-        <li><a href="{% url 'main:contact' %}"><span class="glyphicon glyphicon-earphone"></span>&nbsp;Contact</a></li>
+        <li><a href="{% url 'main:rules' %}" target="_blank"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;Rules</a></li>
+        <li><a href="{% url 'main:contact' %}" target="_blank"><span class="glyphicon glyphicon-earphone"></span>&nbsp;Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{% url 'main:logout_user' %}"<span class="glyphicon glyphicon-user"></span>&nbsp;<STRONG>{{ student.name }}&nbsp;|&nbsp;<span class="glyphicon glyphicon-off"></span>&nbsp;Logout</STRONG></a></li>
