@@ -13,20 +13,20 @@ You can check the dummy credentials already created by logging into admin panel 
 
 **Login Page** : User needs to give the Webmail ID, password and select his/her role (e.g. Student, faculty, lab, library, gymkhana, CC, HOD, etc.). on clicking on LOGIN button, you will be redirected to your respective profile.
 
-![Login Page](main/images/login.png)
+![Login Page](main/images/login.jpg)
 
 **Student Profile** : You can see your current status of No Dues Clearance from different sources on your home page. 
 'Green' coloured box represents that No Dues has been cleared, 'Red' represents not.
 For detailed information about clearance from Department Faculty and Labs, you may click on 'Department' and 'Lab' respectively.
 It will show a list with red(uncleared)-green(cleared) formatting.
 
-![Student Homepage](main/images/student.png)
+![Student Homepage](main/images/student.JPG)
 
 **Faculty and Other roles**  : After you are redirected to your respective profiles, you will get to see two different lists. 
 On the left side, there is a list on students whomo you haven't give No Dues Clearance and the one on the right are those who have been given clearance.
 You can change both the lists at any time.
 
-![Faculty Homepage](main/images/faculty.png)
+![Faculty Homepage](main/images/faculty.jpg)
 
 **Features** :
 * The login authentication system has all error handling features, like for wrong credentials, it will prompt the user. Also, if you give wrong role,you will be prompted for the same.
