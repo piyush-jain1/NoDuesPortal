@@ -4,9 +4,9 @@ Clone the repository using git clone https://github.com/piyush-jain1/NoDuesPorta
 
 This is a quick guide on how to use this system.
 
-**Starting the Server** : Open your Terminal ( Power Shell in Windows ) , change the directory to the directory in which your project is present. Run the commmand - python manage.py runserver
+**Starting the Server** : Open your Terminal ( Power Shell in Windows ) , change the directory to the directory in which your project is present. Run the commmand : `python manage.py runserver`
 
-Go to your browser and visit - 127.0.0.1:8000/login_user or localhost:8000/login_user
+Go to your browser and visit : `127.0.0.1:8000/login_user` or `localhost:8000/login_user`
 You can check the dummy credentials already created by logging into admin panel and clicking on 'Users'. Or you may also create new users.
 
 **Login Page** : User needs to give the Webmail ID, password and select his/her role (e.g. Student, faculty, lab, library, gymkhana, CC, HOD, etc.). on clicking on LOGIN button, you will be redirected to your respective profile.
@@ -33,8 +33,8 @@ You can change both the lists at any time.
 * The system also ensures reverse heirarchy, like , for exapmle, a student has got clearance from caretaker and then the warden, but after that, the caretaker changes his take and mark him dues, then it will automatically mark him 'Due' for all above his heirarchy(like warden).
 
 NOTE : 
-* All dummy passwords have been initialized as : csepassword
-* Access to admin panel :  Username : admin
+* All dummy passwords have been initialized as : `csepassword`
+* Access to admin panel :  Username : `admin`
 
 
 
