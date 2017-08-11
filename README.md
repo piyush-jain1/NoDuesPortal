@@ -21,7 +21,7 @@ It will show a list with red(uncleared)-green(cleared) formatting.
 ![Student Homepage](main/images/student.JPG)
 
 **Faculty and Other roles**  : After you are redirected to your respective profiles, you will get to see two different lists. 
-On the left side, there is a list on students whomo you haven't give No Dues Clearance and the one on the right are those who have been given clearance.
+On the left side, there is a list on students whom you haven't give No Dues Clearance and the one on the right are those who have been given clearance.
 You can change both the lists at any time.
 
 ![Faculty Homepage](main/images/faculty.jpg)
@@ -30,7 +30,7 @@ You can change both the lists at any time.
 * The login authentication system has all error handling features, like for wrong credentials, it will prompt the user. Also, if you give wrong role,you will be prompted for the same.
 * We have tried to resemble the UI of the system as per the websites of IIT Guwahati.
 * The system follows complete heirarchy law. It means that it follows the constraints like Warden can't give clearance until caretaker has not given the clearance to a particular student, similarly HOD can't give clearance until all the faculties of the department have not given the clearance.
-* The system also ensures reverse heirarchy, like , for exapmle, a student has got clearance from caretaker and then the warden, but after that, the caretaker changes his take and mark him dues, then it will automatically mark him 'Due' for all above his heirarchy(like warden).
+* The system also ensures reverse heirarchy, like , for exapmle, a student has got clearance from caretaker and then the warden, but after that, the caretaker changes his take and marks him dues, then it will automatically mark him 'Due' for all above his heirarchy(like warden).
 
 NOTE : 
 * All dummy passwords have been initialized as : `csepassword`
